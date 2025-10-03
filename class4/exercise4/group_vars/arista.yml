@@ -1,0 +1,4 @@
+---
+vlan_id: "250"
+vlan_name: VLAN250
+intf_name: Ethernet7

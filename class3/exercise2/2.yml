@@ -1,0 +1,19 @@
+---
+- name: Exercise 2
+  hosts: nxos1
+  gather_facts: False
+  
+  tasks:
+    - name: Show vlan id
+      cisco.nxos.nxos_command:
+        commands: "show vlan id {{ item }}" 
+      register: vlans
+      loop: 
+        - 1
+        - 2
+        - 3
+        - 4
+
+    - name: Show vlan id 4 output
+      debug:
+        var: vlans['results'][3]['stdout_lines']

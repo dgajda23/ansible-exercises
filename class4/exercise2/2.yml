@@ -1,0 +1,11 @@
+---
+- name: Exercise 2
+  hosts: cisco1
+  gather_facts: False 
+  tasks:
+    - name: Configure hostname, domain name, and name servers
+      cisco.ios.ios_system:
+        hostname: "{{ hostname }}"
+        domain_name: "{{ domain_name }}"
+        name_servers: "{{ name_servers }}"
+    

@@ -1,0 +1,21 @@
+---
+- name: Exercise 1
+  hosts: cisco
+  gather_facts: False
+  tasks:
+    - name: Configure Login Banner
+      cisco.ios.ios_banner:
+        banner: login
+        text: |
+          ###############################################
+
+            This is a login banner for Class4 Exercise 1
+
+          ###############################################
+      notify: write mem
+
+  handlers:
+    - name: write mem
+      cisco.ios.ios_command:
+        commands: write_mem
+      changed_when: True

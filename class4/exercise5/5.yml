@@ -1,0 +1,35 @@
+---
+- name: Exercise 5
+  hosts: nxos
+  gather_facts: False
+  tasks:
+    - name: Configure Interfaces on nxos devices
+      cisco.nxos.nxos_interfaces:
+        config:
+          - name: "{{ intf_name }}"
+            mode: "{{ intf_mode }}"
+        state: merged
+
+    - name: Configure trunk mode and vlan
+      cisco.nxos.nxos_l2_interfaces:
+        config:
+          - name: "{{ intf_name }}"
+            mode: "{{ switchport_mode }}"
+            trunk:
+              native_vlan: "{{ native_vlan }}"
+        state: merged
+
+    - name: Gather show information
+      cisco.nxos.nxos_command:
+        commands: 'show interface {{ intf_name }} trunk | json'
+      register: output
+
+    - set_fact:
+        trunk_dict: "{{ output.stdout[0].TABLE_interface.ROW_interface }}"
+
+    - name: Verify info
+      assert:
+        that:
+          - trunk_dict.status == 'trunking'
+          - trunk_dict.native == native_vlan
+            

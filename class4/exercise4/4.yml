@@ -1,0 +1,34 @@
+---
+- name: Exercise 4
+  hosts: arista
+  gather_facts: False
+  tasks:
+    - name: Create and assign VLANs
+      arista.eos.eos_vlans:
+        config:
+          - vlan_id: "{{ vlan_id }}"
+            name: "{{ vlan_name }}"
+        state: merged
+
+    - name: Assign VLAN to interfaces
+      arista.eos.eos_l2_interfaces:
+        config:
+          - name: "{{ intf_name }}"
+            access:
+              vlan: "{{ vlan_id }}" 
+        state: merged
+
+    - name: Execute show vlan
+      arista.eos.eos_command:
+        commands: show vlan | json
+      register: output
+
+    - ansible.builtin.set_fact:
+        interfaces_dict: '{{ output.stdout[0].vlans[vlan_id].interfaces }}'
+        vlan_status: '{{ output.stdout[0].vlans[vlan_id].status }}'
+
+    - name: "Verify VLAN is active and {{ intf_name }} is assigned to VLAN"
+      ansible.builtin.assert:
+        that:
+          - vlan_status == 'active'
+          - "'Ethernet7' in interfaces_dict"

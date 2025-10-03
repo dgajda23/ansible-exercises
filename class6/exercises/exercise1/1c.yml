@@ -1,0 +1,12 @@
+---
+- name: Exercise 1c
+  hosts: localhost
+  gather_facts: False
+  tasks:
+  
+    - name: Include tasks
+      include_tasks: subtask2.yml
+      tags:
+        - debug1
+        - debug2
+        - debug3

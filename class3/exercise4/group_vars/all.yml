@@ -1,0 +1,3 @@
+---
+ntp_server1: 10.10.10.10
+timezone: CEST

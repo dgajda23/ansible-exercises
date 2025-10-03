@@ -1,0 +1,49 @@
+!
+transceiver qsfp default-mode 4x10g
+!
+hostname arista5
+!
+ntp server 10.10.10.10
+!
+spanning-tree mode rapid-pvst
+!
+aaa authorization exec default local
+!
+no aaa root
+!
+interface Ethernet1
+    spanning-tree portfast
+    spanning-tree cost 1
+!
+interface Ethernet2
+    switchport access vlan 2
+! 
+interface Ethernet3
+    switchport access vlan 3
+! 
+interface Ethernet4
+    switchport access vlan 4
+! 
+interface Ethernet5
+    switchport access vlan 5
+! 
+interface Ethernet6
+    switchport access vlan 6
+! 
+interface Ethernet7
+    switchport access vlan 7
+! 
+interface Management1
+    shutdown
+!
+interface Vlan1
+    ip address 10.220.88.32/24
+!
+ip route 0.0.0.0/0 10.220.88.1
+!
+ip routing
+!
+management api http-commands
+    no shutdown
+!
+end

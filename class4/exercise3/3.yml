@@ -1,0 +1,23 @@
+---
+- name: Exercise 3
+  hosts: nxos
+  gather_facts: False
+  tasks:
+    - name: Configure interfaces
+      cisco.nxos.nxos_l3_interfaces:
+        config:
+          - name: "{{ int_name }}"
+            ipv4:
+              - address: "{{ int_ip }}/{{ int_netmask }}"
+        state: merged
+
+    - name: Ping other interface
+      cisco.nxos.nxos_ping:
+        dest: "{{ peer_ip }}"
+      register: output
+
+    - name: Assert Interfaces are Reachable
+      ansible.builtin.assert:
+        that:
+          - output.packets_rx >= 4
+                

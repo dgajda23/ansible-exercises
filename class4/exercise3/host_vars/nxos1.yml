@@ -1,0 +1,5 @@
+---
+int_name: Ethernet1/4
+int_ip: 10.227.10.1
+int_netmask: 24
+peer_ip: 10.227.10.2
