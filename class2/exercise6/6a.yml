@@ -3,11 +3,11 @@
   hosts: arista
   gather_facts: False
   tasks:
-    - name: Gather show ip arp output
+    - name: Get show ip arp output
       arista.eos.eos_command:
         commands: show ip arp
-      register: show_ip_arp
+      register: show_ip_arp_output
 
     - name: Print ip arp output
       ansible.builtin.debug:
-        var: show_ip_arp
+        var: show_ip_arp_output

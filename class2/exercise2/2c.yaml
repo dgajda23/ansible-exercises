@@ -1,5 +1,5 @@
 ---
-- name: Exercise 2a
+- name: Exercise 2c
   hosts: cisco
   gather_facts: False
   tasks:

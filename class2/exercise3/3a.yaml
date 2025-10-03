@@ -3,10 +3,10 @@
   hosts: nxos
   gather_facts: False
   tasks:
-    - name: Gather show version output
+    - name: Get show version output
       cisco.nxos.nxos_command:
         commands: show version
-      register: show_version
+      register: show_version_output
 
     - debug:
-        var: show_version
+        var: show_version_output

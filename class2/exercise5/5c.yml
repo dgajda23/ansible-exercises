@@ -1,13 +1,13 @@
 ---
-- name: Exercise 5a
+- name: Exercise 5c
   hosts: juniper
   gather_facts: False
   tasks:
     - name: Run the show interfaces terse command
       junipernetworks.junos.junos_command: 
         commands: show interfaces terse
-      register: interfaces
+      register: interfaces_output
 
     - ansible.builtin.debug:
-        msg: "{{ interfaces['stdout_lines'][0][21].split('  ')[-1] }}" 
+        msg: "{{ interfaces_output['stdout_lines'][0][21].split()[-1] }}" 
 

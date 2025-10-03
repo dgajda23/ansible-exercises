@@ -1,9 +1,9 @@
 ---
-- name: Exercise 3a
+- name: Exercise 3b
   hosts: nxos
   gather_facts: False
   tasks:
-    - name: Gather show version output
+    - name: Get show version and show lldp neighbors output
       cisco.nxos.nxos_command:
         commands: 
           - show version

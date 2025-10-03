@@ -6,8 +6,8 @@
     - name: Run the show interfaces terse command
       junipernetworks.junos.junos_command: 
         commands: show interfaces terse
-      register: interfaces
+      register: interfaces_output
 
     - ansible.builtin.debug:
-        var: interfaces 
+        var: interfaces_output 
 
