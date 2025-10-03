@@ -1,0 +1,7 @@
+---
+rtr1:
+  host: local
+  username: dgajda
+  password: password123
+  device_type: ciena
+  use_session_log: False

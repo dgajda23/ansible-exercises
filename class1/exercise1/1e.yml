@@ -1,0 +1,20 @@
+---
+network_devices:
+    - host: 'local'
+      username: 'dgajda'
+      password: 'password123'
+      device_type: 'ciena'
+      use_session_log: False
+      ip_addresses:
+        - 1.1.1.1
+        - 2.2.2.2
+        - 3.3.3.3
+    - host: 'remote'
+      username: 'davidg'
+      password: 'password321'
+      device_type: 'cisco'
+      use_session_log: True
+      ip_addresses:
+        - '4.4.4.4'
+        - '5.5.5.5'
+        - '6.6.6.6'

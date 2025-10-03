@@ -1,0 +1,1 @@
+{rtr1: {'host': 'local', 'password': 'password123', 'use_session_log': False, 'username': 'dgajda', 'device_type': 'ciena'}}

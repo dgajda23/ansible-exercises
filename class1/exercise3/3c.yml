@@ -1,0 +1,17 @@
+---
+- name: Local ansible_host
+  gather_facts: False
+  hosts: localhost
+  tasks:
+    - ansible.builtin.debug:
+        var: ansible_host
+
+- name: Cisco
+  gather_facts: False
+  hosts: cisco
+  tasks:
+    - ansible.builtin.debug:
+        var: ansible_connection
+
+    - ansible.builtin.debug:
+        var: ansible_host
