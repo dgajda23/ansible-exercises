@@ -8,7 +8,7 @@
         commands: show lldp neighbors
       register: show_lldp_neighbors
 
-    - name: Extract list of lines from output 
+    - name: Extract lines from output 
       set_fact:
           lldp: "{{ show_lldp_neighbors['stdout_lines'][0] }}"
 

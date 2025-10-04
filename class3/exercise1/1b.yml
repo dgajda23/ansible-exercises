@@ -9,20 +9,24 @@
         commands: show ip arp
       register: show_ip_arp_eos
       when: ansible_network_os == "eos"
+      tags: eos
 
     - name: Retrieve ios show ip arp
       cisco.ios.ios_command:
         commands: show ip arp
       register: show_ip_arp_ios
       when: ansible_network_os == "ios"
+      tags: ios
 
     - name: Retrieve junos show arp
       junipernetworks.junos.junos_command:
         commands: show arp
       register: show_ip_arp_junos
       when: ansible_network_os == "junos"
+      tags: junos
 
     - name: Print show_ip_arp
       debug:
         var: show_ip_arp_eos
       when: ansible_network_os == "eos"
+      tags: eos

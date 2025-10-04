@@ -3,7 +3,17 @@
   hosts: nxos1:nxos2
   gather_facts: False
   tasks:
-    - name: Generate Config
+    - name: Generate Int Config
       template:
-        src: nxos.j2
-        dest: "./CFGS/{{ inventory_hostname }}/01-{{ inventory_hostname }}-config.txt"
+        src: interfaces.j2
+        dest: "./CFGS/{{ inventory_hostname }}/01-{{ inventory_hostname }}-intf.txt"
+
+    - name: Generate BGP Config
+      template:
+        src: bgp.j2
+        dest: "./CFGS/{{ inventory_hostname }}/02-{{ inventory_hostname }}-bgp.txt"
+
+    - name: Merge the two config files into one
+      ansible.builtin.assemble:
+        src: "./CFGS/{{ inventory_hostname }}"
+        dest: "./CFGS/{{ inventory_hostname }}-config.txt"
