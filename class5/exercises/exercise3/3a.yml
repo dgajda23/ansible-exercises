@@ -3,7 +3,7 @@
   hosts: cisco5:cisco6
   gather_facts: False
   tasks:
-    - name: Config with hierarchy
+    - name: Hierarchy config
       cisco.ios.ios_config:
         before: no ip access-list extended TEST-ANSIBLE1
         parents: ip access-list extended TEST-ANSIBLE1

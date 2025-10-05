@@ -3,13 +3,13 @@
   hosts: cisco1:cisco2
   gather_facts: False
   tasks:
-    - name: Execute show users command
+    - name: Run show users command
       cisco.ios.ios_command:
         commands: show users
       register: output
 
     - name: View connected users
-      ansible.builtin.debug:
+      debug:
         var: output.stdout[0]
 
     - name: Verify connected users

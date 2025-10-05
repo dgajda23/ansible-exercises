@@ -1,19 +1,18 @@
 ---
-- name: Global configuration
+- name: Exercise 2 
   hosts: cisco:arista:nxos:juniper
   gather_facts: True
   tasks:
-    - name: Global config
-      ansible.builtin.set_fact:
+    - name: Set config
+      set_fact:
         config: "{{ lookup('template', 'templates/{{ ansible_network_os }}/global.j2') }}"
 
-    - name: View the generated configuration
-      ansible.builtin.debug:
+    - name: View the configuration
+      debug:
         var: config.splitlines()
 
     - name: Global config
       vars:
-          # cli_config requires network_cli (Juniper defaults to netconf in inventory)
           ansible_connection: network_cli
       ansible.netcommon.cli_config:
         config: "{{ config }}"

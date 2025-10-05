@@ -14,7 +14,6 @@
         save_when: changed
       when: ansible_facts.net_iostype is defined and ansible_facts.net_iostype == "IOS"
 
-
     - name: IOS XE Config
       cisco.ios.ios_config:
         lines:
@@ -56,4 +55,3 @@
           - "set system ntp server {{ ntp_server2 }}"
       when: 'ansible_network_os == "junos"'
         
-       
