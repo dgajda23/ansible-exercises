@@ -1,0 +1,28 @@
+---
+- name: Exercise 4a
+  hosts: nxos
+  gather_facts: False
+  vars:
+    command: show version 
+  collections:
+    - clay584.genie
+
+  tasks:
+    - name: Executing Command
+      cisco.nxos.nxos_command:
+        commands: "{{ command }}"
+      register: show_int_output
+
+    - name: Display devie output
+      debug:
+        var: show_int_output 
+
+    - name: Convert to structured data using Genie
+      set_fact:
+        output_struct: "{{ show_int_output.stdout[0] | clay584.genie.parse_genie(command=command, os=ansible_network_os) }}"
+
+    - name: Display software version
+      debug:
+        msg:
+          - "{{ inventory_hostname }}:"
+          - "{{ output_struct.platform.software.system_version }}"

@@ -1,0 +1,26 @@
+---
+- name: Exercise 3a
+  hosts: nxos
+  gather_facts: False
+  tasks:
+    - name: Execute command
+      cisco.nxos.nxos_command:
+        commands: show ip bgp summary
+      register: show_ip_bgp_output
+    
+    - name: Invoke TextFSM on Output
+      set_fact:
+        show_bgp: "{{ show_ip_bgp_output.stdout | first | parse_cli_textfsm('cisco_nxos_show_ip_bgp_summary.textfsm') }}"
+
+    - name: Debug Sorted Data
+      debug:
+        msg: "{{ show_bgp[0] }}"
+      when: show_bgp != []
+
+    - name: Checking if BGP is up
+      assert:
+        that:
+          - "'Shut' not in show_bgp[0]['STATE_PFXRCD']"
+          - "'Idle' not in show_bgp[0]['STATE_PFXRCD']"
+          - show_bgp[0]['STATE_PFXRCD'] | int >= 2
+      when: show_bgp != []

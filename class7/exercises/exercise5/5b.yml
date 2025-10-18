@@ -1,0 +1,23 @@
+---
+- name: Exercise 5b
+  hosts: arista
+  gather_facts: False
+  tasks:
+    - name: Execute command
+      arista.eos.eos_command:
+        commands: show version
+      register: show_version_output
+
+    - name: Display output as a string
+      ansible.builtin.debug:
+        msg: "{{ show_version_output.stdout[0].splitlines() }}"
+
+    - name: Parse output using regex
+      set_fact:
+        os_list: "{{ show_version_output.stdout[0] | regex_search('^Software image version: (\\S+).*$', '\\1', multiline=True) }}"
+
+    - name: Output software version per device
+      debug:
+        msg:
+          - "{{ inventory_hostname }}:"
+          - "{{ os_list[0] }}"

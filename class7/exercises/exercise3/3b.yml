@@ -1,0 +1,28 @@
+- name: Exercise 3b
+  hosts: arista
+  gather_facts: True
+  vars:
+    platform: "arista_eos"
+    command: "show vlan"
+    textfsm_rel_path: "ntc-templates/ntc_templates/templates/"
+  tasks:
+    - name: Executing command
+      arista.eos.eos_command:
+        commands: "{{ command }}"
+      register: show_vlan_output
+
+    - name: Debug Output
+      debug:
+        var: show_vlan_output
+
+    - name: "Set home directory"
+      ansible.builtin.set_fact:
+        textfsm_index: "{{ inventory_dir }}/{{textfsm_rel_path }}"
+
+    - name: Invoke TextFSM on output
+      set_fact:
+        output_parsed: "{{ show_vlan_output.stdout[0] | ntc_parse(command, platform, textfsm_index ) }}"
+
+    - name: Print parsed output
+      debug:
+        var: output_parsed

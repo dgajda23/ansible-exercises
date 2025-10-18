@@ -1,0 +1,22 @@
+---
+- name: Exercise 5a
+  hosts: nxos
+  gather_facts: False
+  tasks:
+    - name: Executing command
+      cisco.nxos.nxos_command:
+        commands: show lldp neighbors
+      register: show_lldp_neighbors_output
+
+    - name: Print the output
+      debug:
+        var: show_lldp_neighbors_output.stdout[0].splitlines()
+
+    - name: Extract LLDP columns using regex
+      set_fact:
+        lldp: "{{ show_lldp_neighbors_output.stdout[0] | regex_findall('^(\\S+)\\s+(Eth\\S+)\\s+\\d+\\s+\\S+\\s+(Ethernet\\S+)', multiline=True) }}"
+
+    - name: Print LLDP fields in a list
+      debug:
+        msg: "{{ lldp }}"
+
