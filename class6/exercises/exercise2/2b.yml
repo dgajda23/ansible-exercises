@@ -1,0 +1,9 @@
+---
+- name: Exercise 2b
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Loop over IP addresses and Print
+      vars: 
+        tasks_file_alt: subtask1.yml
+      import_tasks: "{{ tasks_file_alt }}"

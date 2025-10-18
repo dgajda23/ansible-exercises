@@ -1,5 +1,5 @@
 ---
-- name: Exercise 1a
+- name: Exercise 1b
   hosts: localhost
   gather_facts: False
   tasks:

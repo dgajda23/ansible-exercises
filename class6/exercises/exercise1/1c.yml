@@ -3,6 +3,9 @@
   hosts: localhost
   gather_facts: False
   tasks:
+
+    - name: Include tasks no tags
+      include_tasks: subtask2.yml
   
     - name: Include tasks
       include_tasks: subtask2.yml
@@ -10,3 +13,8 @@
         - debug1
         - debug2
         - debug3
+
+    - name: Include tasks with always tag
+      include_tasks: subtask2.yml
+      tags:
+        - always

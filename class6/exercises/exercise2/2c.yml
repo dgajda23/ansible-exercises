@@ -1,0 +1,9 @@
+---
+- name: Exercise 1c
+  hosts: localhost
+  gather_facts: False
+  tasks:
+
+    - name: Include tasks no tags
+      import_tasks: subtask2.yml
+  
