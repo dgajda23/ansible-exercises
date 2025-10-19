@@ -1,0 +1,22 @@
+---
+- name: Exercise 3
+  hosts: arista
+  gather_facts: False
+  tasks:
+    - name: Retrieve switching table
+      arista.eos.eos_command:
+        commands: show mac address-tabl | json
+      register: switching_table_output
+
+    - name: Retrieve unicast switching table from output
+      set_fact:
+        switching_table: "{{ switching_table_output.stdout[0].unicastTable.tableEntries }}"
+  
+    - name: Concatenate mac-addresses to list
+      set_fact:
+        switching_table_list: "{{ switching_table_list | default([]) + [item.macAddress] }}"
+      loop: "{{ switching_table }}"
+
+    - name: Print list
+      debug:
+        var: switching_table_list

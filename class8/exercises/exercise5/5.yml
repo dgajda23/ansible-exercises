@@ -1,0 +1,58 @@
+---
+- name: Configure VLANs on nxos1
+  hosts: nxos1
+  tasks:
+    - nxos_vlans:
+        config:
+          - vlan_id: 100
+            name: blue100
+          - vlan_id: 101
+            name: blue101
+        state: merged
+
+- name: Configure VLANs on nxos2
+  hosts: nxos2
+  tasks:
+    - nxos_vlans:
+        config:
+          - vlan_id: 200
+            name: blue200
+          - vlan_id: 201
+            name: blue201
+        state: merged
+
+- name: Show the VLAN output
+  hosts: nxos
+  gather_facts: False
+  tasks:
+    - name: Retrieve the switching table
+      cisco.nxos.nxos_command: 
+        commands: show vlan | json
+      register: show_vlan_output
+  
+    - name: Create Dict
+      set_fact:
+        vlan_dict: "{{ show_vlan_output.stdout[0].TABLE_vlanbrief.ROW_vlanbrief }}"
+    
+    - name: Extract the relevant fields
+      set_fact:
+        vlans: "{{ vlan_dict | map(attribute='vlanshowbr-vlanid') | list }}"
+    
+    - name: Print the VLANs
+      debug:
+        var: vlans
+
+    - name: Print the Common VLANs
+      debug:
+        msg: "Common VLANs: {{ vlans | intersect(hostvars['nxos2']['vlans']) }}"
+      when: inventory_hostname == 'nxos1'
+  
+    - name: Print the Unique VLANs for NXOS1
+      debug:
+        msg: "Unique VLANs nxos1: {{ vlans | difference(hostvars['nxos2']['vlans']) }}"
+      when: inventory_hostname == 'nxos1'
+
+    - name: Print the Unique VLANs for NXOS2
+      debug:
+        msg: "Unique VLANs nxos2: {{ vlans | difference(hostvars['nxos1']['vlans']) }}"
+      when: inventory_hostname == 'nxos2'
