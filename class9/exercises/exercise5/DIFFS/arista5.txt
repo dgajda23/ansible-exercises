@@ -1,0 +1,81 @@
+@@ -14,9 +14,6 @@
+ service routing protocols model ribd
+ !
+ hostname arista5
+-ip name-server vrf default 8.8.4.4
+-ip name-server vrf default 8.8.8.8
+-dns domain bogus.com
+ !
+ spanning-tree mode rapid-pvst
+ !
+@@ -24,17 +21,27 @@
+ !
+ vlan 2-7
+ !
+-vlan 285
+-   name jimmeh-vlan
++vlan 202
++   name blue202
++!
++vlan 203
++   name blue203
++!
++vlan 204
++   name blue204
++!
++vlan 205
++   name blue205
++!
++vlan 206
++   name blue206
++!
++vlan 207
++   name blue207
+ !
+ management api http-commands
+-   protocol https ssl profile selfSignedSSLProfile
+    no shutdown
+ !
+-management security
+-   ssl profile selfSignedSSLProfile
+-      certificate self-signed.crt key self-signed.key
+-!
+ aaa authorization exec default local
+ !
+ interface Ethernet1
+@@ -42,22 +49,22 @@
+    spanning-tree cost 1
+ !
+ interface Ethernet2
+-   switchport access vlan 2
++   switchport access vlan 202
+ !
+ interface Ethernet3
+-   switchport access vlan 3
++   switchport access vlan 203
+ !
+ interface Ethernet4
+-   switchport access vlan 4
++   switchport access vlan 204
+ !
+ interface Ethernet5
+-   switchport access vlan 5
++   switchport access vlan 205
+ !
+ interface Ethernet6
+-   switchport access vlan 6
++   switchport access vlan 206
+ !
+ interface Ethernet7
+-   switchport access vlan 285
++   switchport access vlan 207
+ !
+ interface Management1
+    shutdown
+@@ -70,6 +77,5 @@
+ ip route 0.0.0.0/0 10.220.88.1
+ !
+ ntp server 130.126.24.24
+-ntp server 152.2.21.1
+ !
+ end

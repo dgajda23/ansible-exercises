@@ -1,0 +1,22 @@
+---
+- name: Exercise 2
+  hosts: arista:cisco
+  gather_facts: False
+  tasks:
+    - name: Retrieve LLDP neighbor table
+      napalm.napalm.get_facts:
+        filter: lldp_neighbors
+
+    - name: Create a string to print the output data
+      set_fact:
+        lldp_string: "{{ lldp_string | default('') + item.key + ':' + item.value[0].hostname + '\n' }}"
+      loop: "{{ napalm_lldp_neighbors | dict2items }}"
+      loop_control:
+        label: "."
+
+    - name: Print the data
+      debug:
+        msg: |
+          ********* LLDP table for ({{ inventory_hostname }}) ********
+          {{ lldp_string }}
+          >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

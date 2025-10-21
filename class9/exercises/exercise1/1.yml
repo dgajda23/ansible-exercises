@@ -1,0 +1,21 @@
+---
+- name: Exercise 1
+  hosts: arista:nxos:juniper:cisco
+  gather_facts: False
+  vars:
+    napalm_port:
+      eos: 443
+      ios: 22
+      nxos: 8443
+      junos: 830
+  tasks:
+    - name: Retrieve the Configuration
+      napalm.napalm.get_facts:
+        filter: config
+        optional_args:
+          port: "{{ napalm_port[ansible_network_os] }}"
+  
+    - name: Save the Config File
+      ansible.builtin.copy:
+        content: "{{ napalm_config.running }}"
+        dest: "BUP/{{ ansible_network_os }}/{{ inventory_hostname }}.txt"
