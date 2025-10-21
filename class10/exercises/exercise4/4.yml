@@ -1,0 +1,8 @@
+---
+- name: Exercise 4
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Convert string to upper case
+      my_module:
+        my_string: testing string

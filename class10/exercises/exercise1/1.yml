@@ -1,0 +1,15 @@
+---
+- name: Exercise 1
+  hosts: localhost
+  tasks:
+    - name: Testing filter1
+      debug:
+        msg: "{{ 'tEsTiNg' | filter1 }}"
+
+    - name: Testing filter2
+      debug:
+        msg: "{{ 'tEsTiNg' | filter2 }}"
+
+    - name: Testing filter3
+      debug:
+        msg: "{{ 'tEsTiNg' | filter3 }}"
