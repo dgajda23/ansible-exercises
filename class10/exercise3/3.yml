@@ -1,0 +1,13 @@
+---
+- name: Exercise 3
+  hosts: cisco
+  gather_facts: False
+  tasks:  
+    - name: Executing command
+      cisco.ios.ios_command:
+        commands: show ip arp
+      register: show_ip_arp_output
+
+    - name: Print output of filter
+      debug:
+        msg: "{{ show_ip_arp_output.stdout[0] | arp_dict }}"
