@@ -1,0 +1,101 @@
+
+PLAY [Exercise 1] **************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [cisco2]
+ok: [cisco1]
+ok: [arista5]
+ok: [cisco5]
+ok: [cisco6]
+ok: [arista6]
+ok: [arista7]
+ok: [arista8]
+ok: [vmx1]
+ok: [vmx2]
+ok: [nxos1]
+ok: [nxos2]
+
+TASK [Configure IOS devices] ***************************************************
+skipping: [cisco6]
+skipping: [cisco5]
+skipping: [arista5]
+skipping: [arista6]
+skipping: [arista7]
+skipping: [arista8]
+skipping: [nxos2]
+skipping: [nxos1]
+skipping: [vmx1]
+skipping: [vmx2]
+changed: [cisco2]
+changed: [cisco1]
+
+TASK [Configure IOS-XE devices] ************************************************
+skipping: [cisco1]
+skipping: [cisco2]
+skipping: [arista5]
+skipping: [arista7]
+skipping: [arista6]
+skipping: [nxos1]
+skipping: [arista8]
+skipping: [nxos2]
+skipping: [vmx1]
+skipping: [vmx2]
+changed: [cisco6]
+changed: [cisco5]
+
+TASK [Configure EOS devices] ***************************************************
+skipping: [cisco1]
+skipping: [cisco2]
+skipping: [cisco5]
+skipping: [cisco6]
+skipping: [nxos1]
+skipping: [nxos2]
+skipping: [vmx1]
+skipping: [vmx2]
+changed: [arista8]
+changed: [arista6]
+changed: [arista5]
+changed: [arista7]
+
+TASK [Configure Junos devices] *************************************************
+skipping: [cisco1]
+skipping: [cisco2]
+skipping: [cisco5]
+skipping: [cisco6]
+skipping: [arista5]
+skipping: [arista6]
+skipping: [arista7]
+skipping: [nxos1]
+skipping: [arista8]
+skipping: [nxos2]
+changed: [vmx2]
+changed: [vmx1]
+
+TASK [Configure NXOS devices] **************************************************
+skipping: [cisco1]
+skipping: [cisco2]
+skipping: [cisco5]
+skipping: [cisco6]
+skipping: [arista5]
+skipping: [arista6]
+skipping: [arista7]
+skipping: [arista8]
+skipping: [vmx1]
+skipping: [vmx2]
+changed: [nxos1]
+changed: [nxos2]
+
+PLAY RECAP *********************************************************************
+arista5                    : ok=2    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+arista6                    : ok=2    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+arista7                    : ok=2    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+arista8                    : ok=2    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+cisco1                     : ok=2    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+cisco2                     : ok=2    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+cisco5                     : ok=2    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+cisco6                     : ok=2    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+nxos1                      : ok=2    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+nxos2                      : ok=2    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+vmx1                       : ok=2    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+vmx2                       : ok=2    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+
