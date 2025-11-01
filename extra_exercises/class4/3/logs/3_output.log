@@ -1,0 +1,25 @@
+
+PLAY [Exercise 3] **************************************************************
+
+TASK [Configure L3 Interfaces] *************************************************
+changed: [nxos1]
+changed: [nxos2]
+
+TASK [Ping neighbor] ***********************************************************
+ok: [nxos2]
+ok: [nxos1]
+
+TASK [Verify IP connectivity] **************************************************
+ok: [nxos1] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [nxos2] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY RECAP *********************************************************************
+nxos1                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+nxos2                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

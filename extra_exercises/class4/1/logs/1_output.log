@@ -1,0 +1,15 @@
+
+PLAY [Exercise 1] **************************************************************
+
+TASK [Configure login banner] **************************************************
+changed: [cisco2]
+changed: [cisco6]
+changed: [cisco5]
+changed: [cisco1]
+
+PLAY RECAP *********************************************************************
+cisco1                     : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+cisco2                     : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+cisco5                     : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+cisco6                     : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

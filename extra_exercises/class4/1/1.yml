@@ -1,0 +1,19 @@
+---
+- name: Exercise 1
+  hosts: cisco
+  gather_facts: False
+  tasks:
+    - name: Configure login banner
+      cisco.ios.ios_banner:
+        banner: login
+        text: |
+         ####################################
+         # This is a custom login banner!   #
+         # You have logged into the device! #
+         #################################### 
+
+  handlers:
+    - name: Save configuration
+      cisco.ios.ios_command:
+        commands: write mem
+      changed_when: True

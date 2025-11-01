@@ -1,0 +1,36 @@
+---
+- name: Exercise 5
+  hosts: nxos
+  gather_facts: False
+  tasks:
+    - name: Configure L2 ports
+      cisco.nxos.nxos_interfaces:
+        config:
+          - name: "{{ interface_name }}"
+            mode: "{{ interface_mode }}"
+
+    - name: Configure port for trunking
+      cisco.nxos.nxos_l2_interfaces:
+        config:
+          - name: "{{ interface_name }}"
+            mode: "{{ switchport_mode }}"
+            trunk:
+              native_vlan: "{{ native_vlan }}"
+        state: merged
+
+    - name: "Execute show interface {{ interface_name }} trunk | json" 
+      cisco.nxos.nxos_command:
+        commands: "show interface {{ interface_name }} trunk | json"
+      register: show_output
+
+    - name: Extract trunk dict
+      set_fact:
+        trunk_dict: "{{ show_output['stdout'][0]['TABLE_interface']['ROW_interface'] }}"
+  
+    - name: "Verify that {{ interface_name }} is trunking"
+      assert:
+        that:
+          - trunk_dict['interface'] == interface_name
+          - trunk_dict['status'] == 'trunking'
+
+             

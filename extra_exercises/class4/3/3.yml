@@ -1,0 +1,24 @@
+---
+- name: Exercise 3
+  hosts: nxos
+  gather_facts: False
+  tasks:
+    - name: Configure L3 Interfaces
+      cisco.nxos.nxos_l3_interfaces:
+        config:
+          - name: "{{ interface_name }}"
+            ipv4:
+              - address: "{{ ip_address }}/{{ netmask }}"
+        state: merged
+
+
+  
+    - name: Ping neighbor
+      ansible.netcommon.net_ping:
+        dest: "{{ peer_ip }}"
+      register: ping_output
+  
+    - name: Verify IP connectivity
+      assert:
+        that:
+          - ping_output['packets_rx'] >= 4
