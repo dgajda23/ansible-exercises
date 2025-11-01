@@ -1,0 +1,27 @@
+
+PLAY [Exercise 1b] *************************************************************
+
+TASK [Execute show ip arp on IOS] **********************************************
+skipping: [arista5]
+skipping: [arista6]
+skipping: [arista7]
+skipping: [arista8]
+skipping: [vmx1]
+skipping: [vmx2]
+ok: [cisco2]
+ok: [cisco6]
+ok: [cisco5]
+ok: [cisco1]
+
+PLAY RECAP *********************************************************************
+arista5                    : ok=0    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+arista6                    : ok=0    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+arista7                    : ok=0    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+arista8                    : ok=0    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+cisco1                     : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+cisco2                     : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+cisco5                     : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+cisco6                     : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+vmx1                       : ok=0    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+vmx2                       : ok=0    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+

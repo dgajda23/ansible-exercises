@@ -1,0 +1,125 @@
+
+PLAY [Exercise 1a] *************************************************************
+
+TASK [Execute show ip arp on EOS] **********************************************
+skipping: [cisco1]
+skipping: [cisco2]
+skipping: [cisco5]
+skipping: [cisco6]
+skipping: [vmx1]
+skipping: [vmx2]
+ok: [arista5]
+ok: [arista6]
+ok: [arista7]
+ok: [arista8]
+
+TASK [Execute show ip arp on IOS] **********************************************
+skipping: [arista5]
+skipping: [arista6]
+skipping: [arista7]
+skipping: [arista8]
+skipping: [vmx1]
+skipping: [vmx2]
+ok: [cisco2]
+ok: [cisco5]
+ok: [cisco6]
+ok: [cisco1]
+
+TASK [Execute show arp on Junos] ***********************************************
+skipping: [cisco1]
+skipping: [cisco2]
+skipping: [cisco5]
+skipping: [cisco6]
+skipping: [arista5]
+skipping: [arista6]
+skipping: [arista7]
+skipping: [arista8]
+ok: [vmx2]
+ok: [vmx1]
+
+TASK [Print EOS output] ********************************************************
+skipping: [cisco1]
+skipping: [cisco2]
+skipping: [cisco5]
+skipping: [cisco6]
+skipping: [vmx1]
+skipping: [vmx2]
+ok: [arista5] => {
+    "show_ip_arp_output_eos": {
+        "changed": false,
+        "failed": false,
+        "stdout": [
+            "Address         Age (sec)  Hardware Addr   Interface\n10.220.88.1       0:00:00  0024.c4e9.48ae  Vlan1, Ethernet1\n10.220.88.20      1:19:35  c89c.1dea.0eb6  Vlan1, not learned\n10.220.88.37      3:43:37  0001.00ff.0001  Vlan1, Ethernet1\n10.220.88.38      2:36:24  0002.00ff.0001  Vlan1, Ethernet1"
+        ],
+        "stdout_lines": [
+            [
+                "Address         Age (sec)  Hardware Addr   Interface",
+                "10.220.88.1       0:00:00  0024.c4e9.48ae  Vlan1, Ethernet1",
+                "10.220.88.20      1:19:35  c89c.1dea.0eb6  Vlan1, not learned",
+                "10.220.88.37      3:43:37  0001.00ff.0001  Vlan1, Ethernet1",
+                "10.220.88.38      2:36:24  0002.00ff.0001  Vlan1, Ethernet1"
+            ]
+        ]
+    }
+}
+ok: [arista6] => {
+    "show_ip_arp_output_eos": {
+        "changed": false,
+        "failed": false,
+        "stdout": [
+            "Address         Age (sec)  Hardware Addr   Interface\n10.220.88.1       0:00:00  0024.c4e9.48ae  Vlan1, Ethernet1\n10.220.88.20      0:46:49  c89c.1dea.0eb6  Vlan1, not learned"
+        ],
+        "stdout_lines": [
+            [
+                "Address         Age (sec)  Hardware Addr   Interface",
+                "10.220.88.1       0:00:00  0024.c4e9.48ae  Vlan1, Ethernet1",
+                "10.220.88.20      0:46:49  c89c.1dea.0eb6  Vlan1, not learned"
+            ]
+        ]
+    }
+}
+ok: [arista8] => {
+    "show_ip_arp_output_eos": {
+        "changed": false,
+        "failed": false,
+        "stdout": [
+            "Address         Age (sec)  Hardware Addr   Interface\n10.220.88.1       0:00:00  0024.c4e9.48ae  Vlan1, Ethernet1\n10.220.88.20      1:26:14  c89c.1dea.0eb6  Vlan1, not learned"
+        ],
+        "stdout_lines": [
+            [
+                "Address         Age (sec)  Hardware Addr   Interface",
+                "10.220.88.1       0:00:00  0024.c4e9.48ae  Vlan1, Ethernet1",
+                "10.220.88.20      1:26:14  c89c.1dea.0eb6  Vlan1, not learned"
+            ]
+        ]
+    }
+}
+ok: [arista7] => {
+    "show_ip_arp_output_eos": {
+        "changed": false,
+        "failed": false,
+        "stdout": [
+            "Address         Age (sec)  Hardware Addr   Interface\n10.220.88.1       0:00:00  0024.c4e9.48ae  Vlan1, Ethernet1\n10.220.88.20      1:16:10  c89c.1dea.0eb6  Vlan1, not learned"
+        ],
+        "stdout_lines": [
+            [
+                "Address         Age (sec)  Hardware Addr   Interface",
+                "10.220.88.1       0:00:00  0024.c4e9.48ae  Vlan1, Ethernet1",
+                "10.220.88.20      1:16:10  c89c.1dea.0eb6  Vlan1, not learned"
+            ]
+        ]
+    }
+}
+
+PLAY RECAP *********************************************************************
+arista5                    : ok=2    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+arista6                    : ok=2    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+arista7                    : ok=2    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+arista8                    : ok=2    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+cisco1                     : ok=1    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+cisco2                     : ok=1    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+cisco5                     : ok=1    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+cisco6                     : ok=1    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+vmx1                       : ok=1    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+vmx2                       : ok=1    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+

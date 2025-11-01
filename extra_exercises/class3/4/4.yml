@@ -1,0 +1,9 @@
+---
+- name: Exercise 4
+  hosts: arista
+  gather_facts: False
+  tasks:
+    - name: Generate Arista configs
+      template:
+        src: arista.j2
+        dest: "./CFGS/{{ inventory_hostname }}.txt" 

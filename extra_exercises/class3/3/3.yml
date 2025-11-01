@@ -1,0 +1,31 @@
+---
+- name: Exercise 3
+  hosts: cisco1:cisco2
+  gather_facts: False
+  tasks:
+    - name: Execute show lldp neighbors
+      cisco.ios.ios_command:
+        commands: show lldp neighbors
+      register: show_lldp_nei_output
+
+    - name: Extract list of lines
+      set_fact:
+        lldp_nei_lines: "{{ show_lldp_nei_output['stdout_lines'][0] }}"
+  
+    - name: Find specific line
+      set_fact:
+        lldp_entry: "{{ item }}"
+      when: "'twb-sf-hpsw1' in item"
+      loop: "{{ lldp_nei_lines }}"
+
+    - name: Extract variables from the line found
+      set_fact: 
+        lldp_entry_split: "{{ lldp_entry.split() }}"
+
+    - name: Print the extracted variables
+      debug:
+        msg:
+          - "Remote device: {{ lldp_entry_split[0] }}"
+          - "Local intf: {{ lldp_entry_split[1] }}"
+          - "Remote intf: {{ lldp_entry_split[4] }}"
+

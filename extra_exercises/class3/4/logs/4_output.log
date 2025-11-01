@@ -1,0 +1,15 @@
+
+PLAY [Exercise 4] **************************************************************
+
+TASK [Generate Arista configs] *************************************************
+changed: [arista5]
+changed: [arista8]
+changed: [arista7]
+changed: [arista6]
+
+PLAY RECAP *********************************************************************
+arista5                    : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+arista6                    : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+arista7                    : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+arista8                    : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

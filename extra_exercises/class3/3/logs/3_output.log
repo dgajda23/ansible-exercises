@@ -1,0 +1,53 @@
+
+PLAY [Exercise 3] **************************************************************
+
+TASK [Execute show lldp neighbors] *********************************************
+ok: [cisco2]
+ok: [cisco1]
+
+TASK [Extract list of lines] ***************************************************
+ok: [cisco1]
+ok: [cisco2]
+
+TASK [Find specific line] ******************************************************
+skipping: [cisco1] => (item=Capability codes:) 
+skipping: [cisco1] => (item=    (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device) 
+skipping: [cisco2] => (item=Capability codes:) 
+skipping: [cisco1] => (item=    (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other) 
+skipping: [cisco2] => (item=    (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device) 
+skipping: [cisco1] => (item=) 
+skipping: [cisco2] => (item=    (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other) 
+skipping: [cisco1] => (item=Device ID           Local Intf     Hold-time  Capability      Port ID) 
+skipping: [cisco2] => (item=) 
+skipping: [cisco2] => (item=Device ID           Local Intf     Hold-time  Capability      Port ID) 
+ok: [cisco1] => (item=twb-sf-hpsw1        Fa4            120        B               15)
+ok: [cisco2] => (item=twb-sf-hpsw1        Fa4            120        B               13)
+skipping: [cisco1] => (item=) 
+skipping: [cisco1] => (item=Total entries displayed: 1) 
+skipping: [cisco2] => (item=) 
+skipping: [cisco2] => (item=Total entries displayed: 1) 
+
+TASK [Extract variables from the line found] ***********************************
+ok: [cisco1]
+ok: [cisco2]
+
+TASK [Print the extracted variables] *******************************************
+ok: [cisco1] => {
+    "msg": [
+        "Remote device: twb-sf-hpsw1",
+        "Local intf: Fa4",
+        "Remote intf: 15"
+    ]
+}
+ok: [cisco2] => {
+    "msg": [
+        "Remote device: twb-sf-hpsw1",
+        "Local intf: Fa4",
+        "Remote intf: 13"
+    ]
+}
+
+PLAY RECAP *********************************************************************
+cisco1                     : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+cisco2                     : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

@@ -1,0 +1,27 @@
+
+PLAY [Exercise 1b] *************************************************************
+
+TASK [Execute show arp on Junos] ***********************************************
+skipping: [cisco1]
+skipping: [cisco2]
+skipping: [cisco5]
+skipping: [cisco6]
+skipping: [arista5]
+skipping: [arista6]
+skipping: [arista7]
+skipping: [arista8]
+ok: [vmx2]
+ok: [vmx1]
+
+PLAY RECAP *********************************************************************
+arista5                    : ok=0    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+arista6                    : ok=0    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+arista7                    : ok=0    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+arista8                    : ok=0    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+cisco1                     : ok=0    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+cisco2                     : ok=0    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+cisco5                     : ok=0    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+cisco6                     : ok=0    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+vmx1                       : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+vmx2                       : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

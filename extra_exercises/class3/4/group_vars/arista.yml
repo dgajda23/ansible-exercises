@@ -1,0 +1,24 @@
+---
+def_gateway: 10.220.88.1
+interfaces:
+  - name: Ethernet1
+    vlan: 1
+
+  - name: Ethernet2
+    vlan: 2
+
+  - name: Ethernet3
+    vlan: 3
+
+  - name: Ethernet4
+    vlan: 4
+
+  - name: Ethernet5
+    vlan: 5
+
+  - name: Ethernet6
+    vlan: 6 
+
+  - name: Ethernet7
+    vlan: 7
+
