@@ -1,0 +1,139 @@
+
+PLAY [Exercise 3b] *************************************************************
+
+TASK [Execute commands  on device] *********************************************
+ok: [nxos1]
+ok: [nxos2]
+
+TASK [Print device output] *****************************************************
+ok: [nxos1] => {
+    "device_output": {
+        "changed": false,
+        "failed": false,
+        "stdout": [
+            "Cisco Nexus Operating System (NX-OS) Software\nTAC support: http://www.cisco.com/tac\nDocuments: http://www.cisco.com/en/US/products/ps9372/tsd_products_support_series_home.html\nCopyright (c) 2002-2019, Cisco Systems, Inc. All rights reserved.\nThe copyrights to certain works contained herein are owned by\nother third parties and are used and distributed under license.\nSome parts of this software are covered under the GNU Public\nLicense. A copy of the license is available at\nhttp://www.gnu.org/licenses/gpl.html.\n\nNexus 9000v is a demo version of the Nexus Operating System\n\nSoftware\n  BIOS: version \n NXOS: version 9.2(3)\n  BIOS compile time:  \n  NXOS image file is: bootflash:///nxos.9.2.3.bin\n  NXOS compile time:  2/17/2019 5:00:00 [02/17/2019 15:07:27]\n\n\nHardware\n  cisco Nexus9000 9000v Chassis \n   with 6096260 kB of memory.\n  Processor Board ID 9B2B28CMF9S\n\n  Device name: nxos1\n  bootflash:    3509454 kB\nKernel uptime is 151 day(s), 10 hour(s), 27 minute(s), 5 second(s)\n\nLast reset \n  Reason: Unknown\n  System version: \n  Service: \n\nplugin\n  Core Plugin, Ethernet Plugin\n\nActive Package(s):",
+            "Capability codes:\n  (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device\n  (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other\nDevice ID            Local Intf      Hold-time  Capability  Port ID  \nnxos2.lasthop.io     Eth1/1          120        BR          Ethernet1/1   \nnxos2.lasthop.io     Eth1/2          120        BR          Ethernet1/2   \nnxos2.lasthop.io     Eth1/3          120        BR          Ethernet1/3   \nnxos2.lasthop.io     Eth1/4          120        BR          Ethernet1/4   \nTotal entries displayed: 4"
+        ],
+        "stdout_lines": [
+            [
+                "Cisco Nexus Operating System (NX-OS) Software",
+                "TAC support: http://www.cisco.com/tac",
+                "Documents: http://www.cisco.com/en/US/products/ps9372/tsd_products_support_series_home.html",
+                "Copyright (c) 2002-2019, Cisco Systems, Inc. All rights reserved.",
+                "The copyrights to certain works contained herein are owned by",
+                "other third parties and are used and distributed under license.",
+                "Some parts of this software are covered under the GNU Public",
+                "License. A copy of the license is available at",
+                "http://www.gnu.org/licenses/gpl.html.",
+                "",
+                "Nexus 9000v is a demo version of the Nexus Operating System",
+                "",
+                "Software",
+                "  BIOS: version ",
+                " NXOS: version 9.2(3)",
+                "  BIOS compile time:  ",
+                "  NXOS image file is: bootflash:///nxos.9.2.3.bin",
+                "  NXOS compile time:  2/17/2019 5:00:00 [02/17/2019 15:07:27]",
+                "",
+                "",
+                "Hardware",
+                "  cisco Nexus9000 9000v Chassis ",
+                "   with 6096260 kB of memory.",
+                "  Processor Board ID 9B2B28CMF9S",
+                "",
+                "  Device name: nxos1",
+                "  bootflash:    3509454 kB",
+                "Kernel uptime is 151 day(s), 10 hour(s), 27 minute(s), 5 second(s)",
+                "",
+                "Last reset ",
+                "  Reason: Unknown",
+                "  System version: ",
+                "  Service: ",
+                "",
+                "plugin",
+                "  Core Plugin, Ethernet Plugin",
+                "",
+                "Active Package(s):"
+            ],
+            [
+                "Capability codes:",
+                "  (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device",
+                "  (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other",
+                "Device ID            Local Intf      Hold-time  Capability  Port ID  ",
+                "nxos2.lasthop.io     Eth1/1          120        BR          Ethernet1/1   ",
+                "nxos2.lasthop.io     Eth1/2          120        BR          Ethernet1/2   ",
+                "nxos2.lasthop.io     Eth1/3          120        BR          Ethernet1/3   ",
+                "nxos2.lasthop.io     Eth1/4          120        BR          Ethernet1/4   ",
+                "Total entries displayed: 4"
+            ]
+        ]
+    }
+}
+ok: [nxos2] => {
+    "device_output": {
+        "changed": false,
+        "failed": false,
+        "stdout": [
+            "Cisco Nexus Operating System (NX-OS) Software\nTAC support: http://www.cisco.com/tac\nDocuments: http://www.cisco.com/en/US/products/ps9372/tsd_products_support_series_home.html\nCopyright (c) 2002-2019, Cisco Systems, Inc. All rights reserved.\nThe copyrights to certain works contained herein are owned by\nother third parties and are used and distributed under license.\nSome parts of this software are covered under the GNU Public\nLicense. A copy of the license is available at\nhttp://www.gnu.org/licenses/gpl.html.\n\nNexus 9000v is a demo version of the Nexus Operating System\n\nSoftware\n  BIOS: version \n NXOS: version 9.2(3)\n  BIOS compile time:  \n  NXOS image file is: bootflash:///nxos.9.2.3.bin\n  NXOS compile time:  2/17/2019 5:00:00 [02/17/2019 15:07:27]\n\n\nHardware\n  cisco Nexus9000 9000v Chassis \n   with 6096260 kB of memory.\n  Processor Board ID 9B2B28CMF9S\n\n  Device name: nxos2\n  bootflash:    3509454 kB\nKernel uptime is 151 day(s), 9 hour(s), 46 minute(s), 32 second(s)\n\nLast reset \n  Reason: Unknown\n  System version: \n  Service: \n\nplugin\n  Core Plugin, Ethernet Plugin\n\nActive Package(s):",
+            "Capability codes:\n  (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device\n  (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other\nDevice ID            Local Intf      Hold-time  Capability  Port ID  \nnxos1.lasthop.io     Eth1/1          120        BR          Ethernet1/1   \nnxos1.lasthop.io     Eth1/2          120        BR          Ethernet1/2   \nnxos1.lasthop.io     Eth1/3          120        BR          Ethernet1/3   \nnxos1.lasthop.io     Eth1/4          120        BR          Ethernet1/4   \nTotal entries displayed: 4"
+        ],
+        "stdout_lines": [
+            [
+                "Cisco Nexus Operating System (NX-OS) Software",
+                "TAC support: http://www.cisco.com/tac",
+                "Documents: http://www.cisco.com/en/US/products/ps9372/tsd_products_support_series_home.html",
+                "Copyright (c) 2002-2019, Cisco Systems, Inc. All rights reserved.",
+                "The copyrights to certain works contained herein are owned by",
+                "other third parties and are used and distributed under license.",
+                "Some parts of this software are covered under the GNU Public",
+                "License. A copy of the license is available at",
+                "http://www.gnu.org/licenses/gpl.html.",
+                "",
+                "Nexus 9000v is a demo version of the Nexus Operating System",
+                "",
+                "Software",
+                "  BIOS: version ",
+                " NXOS: version 9.2(3)",
+                "  BIOS compile time:  ",
+                "  NXOS image file is: bootflash:///nxos.9.2.3.bin",
+                "  NXOS compile time:  2/17/2019 5:00:00 [02/17/2019 15:07:27]",
+                "",
+                "",
+                "Hardware",
+                "  cisco Nexus9000 9000v Chassis ",
+                "   with 6096260 kB of memory.",
+                "  Processor Board ID 9B2B28CMF9S",
+                "",
+                "  Device name: nxos2",
+                "  bootflash:    3509454 kB",
+                "Kernel uptime is 151 day(s), 9 hour(s), 46 minute(s), 32 second(s)",
+                "",
+                "Last reset ",
+                "  Reason: Unknown",
+                "  System version: ",
+                "  Service: ",
+                "",
+                "plugin",
+                "  Core Plugin, Ethernet Plugin",
+                "",
+                "Active Package(s):"
+            ],
+            [
+                "Capability codes:",
+                "  (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device",
+                "  (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other",
+                "Device ID            Local Intf      Hold-time  Capability  Port ID  ",
+                "nxos1.lasthop.io     Eth1/1          120        BR          Ethernet1/1   ",
+                "nxos1.lasthop.io     Eth1/2          120        BR          Ethernet1/2   ",
+                "nxos1.lasthop.io     Eth1/3          120        BR          Ethernet1/3   ",
+                "nxos1.lasthop.io     Eth1/4          120        BR          Ethernet1/4   ",
+                "Total entries displayed: 4"
+            ]
+        ]
+    }
+}
+
+PLAY RECAP *********************************************************************
+nxos1                      : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+nxos2                      : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

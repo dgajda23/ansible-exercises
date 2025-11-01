@@ -1,0 +1,13 @@
+---
+- name: Exercise 3a
+  hosts: nxos
+  gather_facts: False
+  tasks:
+    - name: Execute show version on device
+      cisco.nxos.nxos_command:
+        commands: show version 
+      register: show_version_output
+
+    - name: Print device output
+      debug:
+        var: show_version_output

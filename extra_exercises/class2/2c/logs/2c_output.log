@@ -1,0 +1,23 @@
+
+PLAY [Exercise 2c] *************************************************************
+
+TASK [Print BGP ASN and loopback0 for cisco hosts] *****************************
+ok: [cisco6] => {
+    "msg": "The ASN for host cisco6 is 65001, the router-id is 6.6.6.6"
+}
+ok: [cisco1] => {
+    "msg": "The ASN for host cisco1 is 65001, the router-id is 1.1.1.1"
+}
+ok: [cisco5] => {
+    "msg": "The ASN for host cisco5 is 65534, the router-id is 5.5.5.5"
+}
+ok: [cisco2] => {
+    "msg": "The ASN for host cisco2 is 65001, the router-id is 2.2.2.2"
+}
+
+PLAY RECAP *********************************************************************
+cisco1                     : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+cisco2                     : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+cisco5                     : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+cisco6                     : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
